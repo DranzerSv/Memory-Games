@@ -1,3 +1,7 @@
 body {
   background-color: cadetblue;
 }
+.app {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
