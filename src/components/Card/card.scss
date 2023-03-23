@@ -2,6 +2,10 @@
   width: 240px;
   height: 240px;
   margin-top: 20px;
+  opacity: 50%;
+}
+.selected {
+  opacity: 100%;
 }
 .color0 {
   background-color: #9cd7ff;
