@@ -9,7 +9,7 @@ import Card from './components/Card/Card';
 import './App.scss';
 
 function App() {
-  const [selectedCard, setSelectedCard] = useState(0);
+  const [selectedCard, setSelectedCard] = useState<number | null>(null);
   // const previousCounter = usePreviousState(selectedCard);
   const [previousValue, getPreviousValue] = useTimeMachine(selectedCard);
 
@@ -17,22 +17,20 @@ function App() {
     <div className="app">
       <h4>{previousValue}</h4>
       <h3>posicion actual{selectedCard}</h3>
-      <button
-        onClick={() => {
-          setSelectedCard(selectedCard + 1);
-        }}
-      >
-        increase
-      </button>
+      <button>Next</button>
       <button
         onClick={() => {
           getPreviousValue();
         }}
       >
-        travelBAck
+        Previous
       </button>
       {cards.map((card) => (
-        <Card key={card['id']} id={card['id']} />
+        <Card
+          key={card['id']}
+          id={card['id']}
+          setSelectedCard={setSelectedCard}
+        />
       ))}
     </div>
   );
