@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 
-function useTimeMachine<T>(state: T): [T | null, () => T | void] {
+function useTimeMachine<T>(
+  state: T
+): [T | null, (position: number) => T | number] {
   const register = useRef<T[]>([]); //para que el array persista;
 
   const prevState = useRef<T | null>(null);
@@ -26,8 +28,9 @@ function useTimeMachine<T>(state: T): [T | null, () => T | void] {
   //     position.current += 1;
   //   }
   // } // a getPreviousVAlue podria pasarle un argumento para que me de 1 posicion mas antigua o
-  function getPreviousValue() {
-    console.log('domingo para todos ');
+  function getPreviousValue(position: number) {
+    console.log(register.current[position + 1]);
+    return register.current[position + 1];
   }
 
   // //una posición más reciente
