@@ -15,33 +15,43 @@ function App() {
   const [focus, setFocus] = useState<number | null>(null);
 
   const [historyPosition, setHistoryPosition] = useState(0);
-  console.log(historyPosition);
+
+  console.log(getPreviousValue(historyPosition));
 
   return (
     <div className="app">
-      <h4>{previousValue !== null ? previousValue : 'deshabilitado'}</h4>
-      <h3>posicion actual{selectedCard}</h3>
       <section className="machineButtons">
         <button
+          className={historyPosition === 0 ? 'disable' : ''}
           onClick={() => {
-            setFocus(getPreviousValue(historyPosition - 2));
-            setHistoryPosition(historyPosition - 1);
+            if (historyPosition !== 0) {
+              setFocus(getPreviousValue(historyPosition - 2));
+              setHistoryPosition(historyPosition - 1);
+            }
           }}
         >
           Next
         </button>
         <button
+          className={historyPosition === 0 ? 'disable' : ''}
           onClick={() => {
-            setHistoryPosition(0);
-            setFocus(selectedCard);
+            if (historyPosition !== 0) {
+              setHistoryPosition(0);
+              setFocus(selectedCard);
+            }
           }}
         >
           Resume
         </button>
         <button
+          className={
+            getPreviousValue(historyPosition) === null ? 'disable' : ''
+          }
           onClick={() => {
-            setFocus(getPreviousValue(historyPosition));
-            setHistoryPosition(historyPosition + 1);
+            if (getPreviousValue(historyPosition) !== null) {
+              setFocus(getPreviousValue(historyPosition));
+              setHistoryPosition(historyPosition + 1);
+            }
           }}
         >
           Previous
