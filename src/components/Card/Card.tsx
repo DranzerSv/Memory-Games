@@ -9,13 +9,16 @@ export default function Card({
   setSelectedCard,
   isSelected,
   setFocus,
+  isTraveling,
 }: ICardProps) {
   return (
     <div
       className={`square color${id} ${isSelected ? 'selected' : null}`}
       onClick={() => {
-        setSelectedCard(id);
-        setFocus(id);
+        if (!isTraveling) {
+          setSelectedCard(id);
+          setFocus(id);
+        }
       }}
     >
       <h1>{id + ' ' + isSelected}</h1>

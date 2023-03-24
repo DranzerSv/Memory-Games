@@ -16,8 +16,6 @@ function App() {
 
   const [historyPosition, setHistoryPosition] = useState(0);
 
-  console.log(getPreviousValue(historyPosition));
-
   return (
     <div className="app">
       <section className="machineButtons">
@@ -66,6 +64,7 @@ function App() {
             setSelectedCard={setSelectedCard}
             isSelected={focus === card['id'] ? true : false}
             setFocus={setFocus}
+            isTraveling={historyPosition > 0 ? true : false}
           />
         ))}
       </section>
