@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { ISquareProps } from '../../interfaces/ISquare';
+
 import './square.scss';
 
 function Square() {
