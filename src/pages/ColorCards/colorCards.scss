@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
+body {
+  background-color: #fff;
+  font-family: 'Raleway';
+}
+.cardsContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+.machineButtons {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+
+  button {
+    background-color: rebeccapurple;
+    width: 200px;
+    height: 50px;
+    color: aliceblue;
+    font-family: 'Raleway';
+  }
+}
+.disable {
+  opacity: 50%;
+}
