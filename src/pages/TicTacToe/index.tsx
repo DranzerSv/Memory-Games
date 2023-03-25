@@ -1,32 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import usePreviousState from '../../customHooks/usePreviousState';
+import verifyWinner from './verifyWinner';
 
 import Square from '../../components/Square';
 
+import './board.scss';
+
 function TicTactToe() {
-  const [boardState, setBoardState] = useState([
+  const [boardState, setBoardState] = useState<Array<string | null>>([
     null,
     null,
     null,
-    'X',
+    null,
     null,
     null,
     null,
     null,
     null,
   ]);
+  verifyWinner(boardState);
 
-  console.log(boardState);
+  const [next, setNext] = useState<boolean>(true);
 
-  function handleClick() {
-    //setBoardState(['Xi', '0', 'X', 'OTRO']);
+  function handleClick(index: number) {
+    const newBoardState = [...boardState];
+    newBoardState[index] = next ? 'X' : '0';
+    setNext(!next);
+    setBoardState(newBoardState);
   }
   return (
     <div>
-      {boardState.map((boardPosition, index) => (
-        <Square key={index} id={index} symbol={boardPosition} />
-      ))}
+      <div className="board">
+        {boardState.map((boardPosition, index) => (
+          <Square
+            key={index}
+            id={index}
+            symbol={boardPosition}
+            handleClick={handleClick}
+          />
+        ))}
+      </div>
     </div>
   );
 }
