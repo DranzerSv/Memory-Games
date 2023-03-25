@@ -1,4 +1,5 @@
 export interface ISquareProps {
   id: number;
-  symmbol: string;
+  symbol: string | null;
+  handleClick: (index: number) => void;
 }
