@@ -9,7 +9,7 @@ function TicTactToe() {
     null,
     null,
     null,
-    2,
+    'X',
     null,
     null,
     null,
@@ -25,7 +25,7 @@ function TicTactToe() {
   return (
     <div>
       {boardState.map((boardPosition, index) => (
-        <Square key={index} />
+        <Square key={index} id={index} symbol={boardPosition} />
       ))}
     </div>
   );
