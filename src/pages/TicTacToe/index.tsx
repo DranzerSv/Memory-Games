@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import useTimeMachine from '../../customHooks/useTimeMachine';
 
@@ -14,7 +14,7 @@ function TicTactToe() {
 
   const [boardState, setBoardState] =
     useState<Array<string | null>>(emptyBoard);
-  const [previousValue, getPreviousValue] = useTimeMachine(boardState);
+  const [previousValues, getPreviousValue] = useTimeMachine(boardState);
 
   const [historyPosition, setHistoryPosition] = useState(0);
 
@@ -45,6 +45,7 @@ function TicTactToe() {
         setHistoryPosition={setHistoryPosition}
         boardState={boardState}
         finished={finished}
+        history={previousValues}
       />
 
       <div className="board">
