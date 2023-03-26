@@ -1,9 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 
-function useTimeMachine<T>(
-  state: T
-): [T | null, (position: number) => T | null] {
-  const register = useRef<T[]>([]); //para que el array persista;
+function useTimeMachine<T>(state: T): [T[], (position: number) => T | null] {
+  const register = useRef<T[]>([]);
 
   const prevState = useRef<T | null>(null);
   const [currentState, setCurrentState] = useState<T>(state);
@@ -21,10 +19,7 @@ function useTimeMachine<T>(
     return null;
   }
 
-  return [
-    register.current.length > 1 ? register.current[1] : null,
-    getPreviousValue,
-  ];
+  return [register.current, getPreviousValue];
 }
 
 export default useTimeMachine;
