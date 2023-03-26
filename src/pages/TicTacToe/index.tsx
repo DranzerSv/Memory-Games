@@ -59,6 +59,7 @@ function TicTactToe() {
             ))
           : null}
       </div>
+      <h2>El siguiente es {next ? 'X' : '0'}</h2>
       <h1>{finished ? 'finalizado' : null}</h1>
     </div>
   );
