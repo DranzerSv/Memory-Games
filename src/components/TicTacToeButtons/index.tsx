@@ -5,9 +5,12 @@ interface ITicTacToeButtonsProps {
   historyPosition: number;
   setRenderedBoard: Dispatch<SetStateAction<(string | null)[] | null>>;
   setHistoryPosition: Dispatch<SetStateAction<number>>;
+  setBoardState: Dispatch<SetStateAction<(string | null)[]>>;
   boardState: (string | null)[];
   finished: boolean;
   history: (string | null)[][];
+  emptyBoard: null[];
+  clearRegister: () => void;
 }
 
 export default function TicTactToe({
@@ -15,9 +18,12 @@ export default function TicTactToe({
   historyPosition,
   setRenderedBoard,
   setHistoryPosition,
+  setBoardState,
   boardState,
   finished,
   history,
+  emptyBoard,
+  clearRegister,
 }: ITicTacToeButtonsProps) {
   function showHistoryWithInterval() {
     let i = history.length - 1;
@@ -28,6 +34,12 @@ export default function TicTactToe({
         clearInterval(intervalId);
       }
     }, 500);
+  }
+  function restartGame() {
+    setHistoryPosition(0);
+    setRenderedBoard(emptyBoard);
+    setBoardState(emptyBoard);
+    clearRegister();
   }
   return (
     <section className="machineButtons">
@@ -76,6 +88,13 @@ export default function TicTactToe({
           Resume
         </button>
       )}
+      <button
+        onClick={() => {
+          restartGame();
+        }}
+      >
+        restart
+      </button>
     </section>
   );
 }

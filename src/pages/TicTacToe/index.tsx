@@ -14,7 +14,8 @@ function TicTactToe() {
 
   const [boardState, setBoardState] =
     useState<Array<string | null>>(emptyBoard);
-  const [previousValues, getPreviousValue] = useTimeMachine(boardState);
+  const [previousValues, getPreviousValue, clearRegister] =
+    useTimeMachine(boardState);
 
   const [historyPosition, setHistoryPosition] = useState(0);
 
@@ -43,9 +44,12 @@ function TicTactToe() {
         historyPosition={historyPosition}
         setRenderedBoard={setRenderedBoard}
         setHistoryPosition={setHistoryPosition}
+        setBoardState={setBoardState}
         boardState={boardState}
         finished={finished}
         history={previousValues}
+        emptyBoard={emptyBoard}
+        clearRegister={clearRegister}
       />
 
       <div className="board">
