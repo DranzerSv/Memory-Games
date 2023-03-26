@@ -7,6 +7,7 @@ interface ITicTacToeButtonsProps {
   setHistoryPosition: Dispatch<SetStateAction<number>>;
   boardState: (string | null)[];
   finished: boolean;
+  history: (string | null)[][];
 }
 
 export default function TicTactToe({
@@ -16,7 +17,18 @@ export default function TicTactToe({
   setHistoryPosition,
   boardState,
   finished,
+  history,
 }: ITicTacToeButtonsProps) {
+  function showHistoryWithInterval() {
+    let i = history.length - 1;
+    const intervalId = setInterval(() => {
+      setRenderedBoard(history[i]);
+      i--;
+      if (i < 0) {
+        clearInterval(intervalId);
+      }
+    }, 500);
+  }
   return (
     <section className="machineButtons">
       <button
@@ -45,12 +57,8 @@ export default function TicTactToe({
       </button>
       {finished ? (
         <button
-          className={historyPosition === 0 ? 'disable' : ''}
           onClick={() => {
-            if (historyPosition !== 0) {
-              setHistoryPosition(0);
-              setRenderedBoard(boardState);
-            }
+            showHistoryWithInterval();
           }}
         >
           Replay
