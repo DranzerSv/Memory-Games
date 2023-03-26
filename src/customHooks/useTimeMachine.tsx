@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 
-function useTimeMachine<T>(state: T): [T[], (position: number) => T | null] {
+function useTimeMachine<T>(
+  state: T
+): [T[], (position: number) => T | null, () => void] {
   const register = useRef<T[]>([]);
 
   const prevState = useRef<T | null>(null);
@@ -18,8 +20,11 @@ function useTimeMachine<T>(state: T): [T[], (position: number) => T | null] {
     }
     return null;
   }
+  function clearRegister() {
+    register.current = [];
+  }
 
-  return [register.current, getPreviousValue];
+  return [register.current, getPreviousValue, clearRegister];
 }
 
 export default useTimeMachine;
