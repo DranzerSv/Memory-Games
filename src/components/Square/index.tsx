@@ -9,7 +9,9 @@ function Square({ id, symbol, handleClick }: ISquareProps) {
     <div
       className="square"
       onClick={() => {
-        handleClick(id);
+        if (symbol === null) {
+          handleClick(id);
+        }
       }}
     >
       <h4>{id}</h4>
