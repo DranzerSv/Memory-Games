@@ -38,59 +38,14 @@ function TicTactToe() {
 
   return (
     <div>
-      <section className="machineButtons">
-        <button
-          className={
-            getPreviousValue(historyPosition) === null ? 'disable' : ''
-          }
-          onClick={() => {
-            const value = getPreviousValue(historyPosition);
-            if (value !== null) {
-              setRenderedBoard(value);
-              setHistoryPosition(historyPosition + 1);
-            }
-          }}
-        >
-          Previous
-        </button>
-
-        <button
-          className={historyPosition === 0 ? 'disable' : ''}
-          onClick={() => {
-            if (historyPosition !== 0) {
-              setRenderedBoard(getPreviousValue(historyPosition - 2));
-              setHistoryPosition(historyPosition - 1);
-            }
-          }}
-        >
-          Next
-        </button>
-        {finished ? (
-          <button
-            className={historyPosition === 0 ? 'disable' : ''}
-            onClick={() => {
-              if (historyPosition !== 0) {
-                setHistoryPosition(0);
-                setRenderedBoard(boardState);
-              }
-            }}
-          >
-            Replay
-          </button>
-        ) : (
-          <button
-            className={historyPosition === 0 ? 'disable' : ''}
-            onClick={() => {
-              if (historyPosition !== 0) {
-                setHistoryPosition(0);
-                setRenderedBoard(boardState);
-              }
-            }}
-          >
-            Resume
-          </button>
-        )}
-      </section>
+      <TicTactToeButtons
+        getPreviousValue={getPreviousValue}
+        historyPosition={historyPosition}
+        setRenderedBoard={setRenderedBoard}
+        setHistoryPosition={setHistoryPosition}
+        boardState={boardState}
+        finished={finished}
+      />
 
       <div className="board">
         {renderedBoard !== null
