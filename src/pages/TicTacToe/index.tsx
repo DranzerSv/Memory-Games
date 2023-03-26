@@ -55,6 +55,7 @@ function TicTactToe() {
                 id={index}
                 symbol={boardPosition}
                 handleClick={handleSquareClick}
+                isTraveling={historyPosition !== 0 ? true : false}
               />
             ))
           : null}
