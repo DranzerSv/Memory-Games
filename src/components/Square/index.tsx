@@ -14,8 +14,7 @@ function Square({ id, symbol, handleClick, isTraveling }: ISquareProps) {
         }
       }}
     >
-      <h4>{id}</h4>
-      <h1>{symbol}</h1>
+      <div className="mark">{symbol}</div>
     </div>
   );
 }

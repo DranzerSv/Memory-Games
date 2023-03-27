@@ -1,5 +1,38 @@
 .square {
-  width: 200px;
-  height: 200px;
-  background-color: pink;
+  width: 70px;
+  height: 70px;
+  background-color: rgb(228, 218, 218);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 100%;
+
+  .mark {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 10vw;
+  }
+}
+@media (min-width: 768px) {
+  .square {
+    width: 120px;
+    height: 120px;
+  }
+}
+@media (min-width: 1024px) {
+  .square {
+    width: 190px;
+    height: 190px;
+  }
+}
+@media (min-width: 1440px) {
+  .square {
+    width: 240px;
+    height: 240px;
+  }
 }
