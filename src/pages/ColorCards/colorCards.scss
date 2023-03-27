@@ -1,23 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
-body {
-  background-color: #fff;
-  font-family: 'Raleway';
+.colorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .cardsContainer {
   display: grid;
   grid-template-columns: auto auto auto auto;
+
+  justify-content: space-around;
+  width: 100vw;
+  max-width: 1200px;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 .machineButtons {
   display: flex;
   justify-content: center;
-  gap: 100px;
+  gap: 5%;
 
   button {
-    background-color: rebeccapurple;
-    width: 200px;
+    background-color: rgb(97, 57, 137);
+    width: 32vw;
+    max-width: 200px;
     height: 50px;
     color: aliceblue;
     font-family: 'Raleway';
+    border: transparent;
   }
 }
 .disable {
