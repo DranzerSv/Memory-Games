@@ -1,0 +1,25 @@
+.navBar {
+  background-color: #ffc800;
+  margin: auto;
+  width: 100vw;
+  max-width: 1150px;
+
+  ul {
+    list-style: none;
+    width: 260px;
+    height: 60px;
+    margin-left: 2%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .activeLink {
+      color: gray;
+    }
+    .unactiveLink {
+      color: azure;
+      text-decoration: none;
+    }
+  }
+}
