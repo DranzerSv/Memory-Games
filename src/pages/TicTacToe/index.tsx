@@ -51,8 +51,12 @@ function TicTactToe() {
         emptyBoard={emptyBoard}
         clearRegister={clearRegister}
       />
-
-      <div className="board">
+      <div className="nextSymbol">
+        <p>Next to Move</p>
+        <div className="symbol">{next ? 'X' : '0'} </div>{' '}
+      </div>
+      <h1 className="finished">{finished ? 'Game Ended!!' : null}</h1>
+      <div className="boardContainer">
         {renderedBoard !== null
           ? renderedBoard.map((boardPosition, index) => (
               <Square
@@ -65,8 +69,6 @@ function TicTactToe() {
             ))
           : null}
       </div>
-      <h2>El siguiente es {next ? 'X' : '0'}</h2>
-      <h1>{finished ? 'finalizado' : null}</h1>
     </div>
   );
 }
