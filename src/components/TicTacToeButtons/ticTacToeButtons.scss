@@ -1,0 +1,18 @@
+.gameButtons {
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+
+  button {
+    background-color: rgb(97, 57, 137);
+    width: 22vw;
+    max-width: 200px;
+    height: 50px;
+    color: aliceblue;
+    font-family: 'Raleway';
+    border: transparent;
+  }
+  .replay {
+    background-color: tomato;
+  }
+}

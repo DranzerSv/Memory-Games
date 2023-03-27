@@ -1,5 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
 
+import './ticTacToeButtons.scss';
+
 interface ITicTacToeButtonsProps {
   getPreviousValue: (position: number) => (string | null)[] | null;
   historyPosition: number;
@@ -42,7 +44,7 @@ export default function TicTactToe({
     clearRegister();
   }
   return (
-    <section className="machineButtons">
+    <section className="gameButtons">
       <button
         className={getPreviousValue(historyPosition) === null ? 'disable' : ''}
         onClick={() => {
@@ -69,6 +71,7 @@ export default function TicTactToe({
       </button>
       {finished ? (
         <button
+          className="replay"
           onClick={() => {
             showHistoryWithInterval();
           }}
