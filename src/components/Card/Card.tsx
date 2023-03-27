@@ -13,15 +13,13 @@ export default function Card({
 }: ICardProps) {
   return (
     <div
-      className={`square color${id} ${isSelected ? 'selected' : null}`}
+      className={`card color${id} ${isSelected ? 'selected' : null}`}
       onClick={() => {
         if (!isTraveling) {
           setSelectedCard(id);
           setFocus(id);
         }
       }}
-    >
-      <h1>{id + ' ' + isSelected}</h1>
-    </div>
+    ></div>
   );
 }

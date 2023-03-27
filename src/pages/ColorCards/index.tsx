@@ -17,8 +17,7 @@ function ColorCards() {
   const [historyPosition, setHistoryPosition] = useState(0);
 
   return (
-    <div className="app">
-      <h2>{previousValue === null ? 'disabled' : previousValue}</h2>
+    <div className="colorContainer">
       <section className="machineButtons">
         <button
           className={historyPosition === 0 ? 'disable' : ''}
