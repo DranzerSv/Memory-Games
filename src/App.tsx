@@ -7,6 +7,7 @@ import ColorCards from './pages/ColorCards';
 import TicTactToe from './pages/TicTacToe';
 
 import './App.scss';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<ColorCards />} />
           <Route path="/phase2" element={<TicTactToe />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
