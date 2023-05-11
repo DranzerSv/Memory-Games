@@ -27,6 +27,8 @@ function TicTactToe() {
 
   const finished = verifyWinner(boardState);
 
+  const previousSymbol = next ? '0' : 'X';
+
   function handleSquareClick(index: number) {
     if (!finished) {
       const newBoardState = [...boardState];
@@ -51,11 +53,16 @@ function TicTactToe() {
         emptyBoard={emptyBoard}
         clearRegister={clearRegister}
       />
-      <div className="nextSymbol">
-        <p>Next to Move</p>
-        <div className="symbol">{next ? 'X' : '0'} </div>{' '}
-      </div>
-      <h1 className="finished">{finished ? 'Game Ended!!' : null}</h1>
+      {!finished ? (
+        <div className="nextSymbol">
+          <p>Next to Move</p>
+          <div className="symbol">{next ? 'X' : '0'} </div>
+        </div>
+      ) : null}
+
+      <h1 className="finished">
+        {finished ? `${previousSymbol} wins!!` : null}
+      </h1>
       <div className="boardContainer">
         {renderedBoard !== null
           ? renderedBoard.map((boardPosition, index) => (
