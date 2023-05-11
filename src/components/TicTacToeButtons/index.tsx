@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { useState } from 'react';
 
 import './ticTacToeButtons.scss';
 
@@ -16,13 +16,17 @@ export default function TicTactToe({
   emptyBoard,
   clearRegister,
 }: ITicTacToeButtonsProps) {
+  const [isReplayActive, setIsReplayActive] = useState(false);
+
   function showHistoryWithInterval() {
     let i = history.length - 1;
     const intervalId = setInterval(() => {
+      setIsReplayActive(true);
       setRenderedBoard(history[i]);
       i--;
       if (i < 0) {
         clearInterval(intervalId);
+        setIsReplayActive(false);
       }
     }, 500);
   }
@@ -61,6 +65,7 @@ export default function TicTactToe({
       {finished ? (
         <button
           className="replay"
+          disabled={isReplayActive}
           onClick={() => {
             showHistoryWithInterval();
           }}
